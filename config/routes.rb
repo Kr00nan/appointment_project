@@ -3,4 +3,5 @@ root "appointments#index"
 devise_for :users
 
 resources :appointments
+resources :doctors
 end

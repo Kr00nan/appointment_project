@@ -1,9 +1,19 @@
 <h1>Add an Appointment</h1>
+<%= link_to 'Back to Scheduled Appointments',  appointments_path %>
+<br>
+<br>
 <%= form_with(model: @appointment, local: true) do |f| %>
   <div class="field">
     <%= f.label :weekday %>
-    <%= f.text_field :weekday, required: true, placeholder: "Day of the Week" %>
+    <%= f.text_field :weekday, required: true %>
   </div>
 
-  <%= f.submit %>
+  <div class="field">
+    <%= f.label :doctor %>
+    <%= f.text_field :doctor, required: true %>
+  </div>
+
+  <%= f.submit "Schedule Appointment", class: "btn waves-effect waves-light" %>
 <% end %>
+<br>
+<p>A link to all our <%= link_to 'doctors', doctors_path %>!</p>
