@@ -4,9 +4,10 @@
 <br>
 <%= form_with(model: @appointment, local: true) do |f| %>
   <!-- I'm trying to create a dropdown menu here to allow users to select the day. It's not working... -->
-  <%= f.label :weekday %>
-  <%= f.select :weekday, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] %>
-
+  <div class="field">
+    <%= f.label :weekday %>
+    <%= f.select :weekday, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] %>
+  </div>
   <div class="field">
     <%= f.label :doctor %>
     <%= f.text_field :doctor, required: true %>

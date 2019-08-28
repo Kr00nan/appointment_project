@@ -5,7 +5,7 @@
 
 <ul>
   <% @appointments.each do |appointment| %>
-    <li>You have an appointment on <%= appointment.weekday %> with <%= appointment.doctor.first_name %>. 
+    <li>You have an appointment on <%= appointment.weekday %> with Dr. <%= appointment.doctor.first_name %> for <%= appointment.doctor.specialty%>. 
     <%= link_to 'Cancel', appointment, method: :delete %></li>
   <% end %>
 </ul>

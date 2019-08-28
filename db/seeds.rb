@@ -31,11 +31,13 @@ end
     password: "password"
   )
 
+  5.times do
   Appointment.create(
     weekday: weekdays.sample,
     doctor_id: rand(10) + 1,
     user_id: user.id
   )
+  end
 end
 
 puts "Data Seeded."
