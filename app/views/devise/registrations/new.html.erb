@@ -5,13 +5,20 @@
 
   <div class="field">
     <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first name" %>
   </div>
 
   <div class="field">
     <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last name" %>
   </div>
+
+<!-- leaving this here to try and implement registration as a dr...
+  <div class="field">
+    <%= f.check_box :as_doctor %>
+    <%= f.label :as_doctor %>
+  </div>
+-->
 
   <div class="field">
     <%= f.label :email %><br />
