@@ -1,2 +1,9 @@
-<h1>Appointments#new</h1>
-<p>Find me in app/views/appointments/new.html.erb</p>
+<h1>Add an Appointment</h1>
+<%= form_with(model: @appointment, local: true) do |f| %>
+  <div class="field">
+    <%= f.label :weekday %>
+    <%= f.text_field :weekday, required: true, placeholder: "Day of the Week" %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
