@@ -1,2 +1,13 @@
 <%= button_to "Log Out", destroy_user_session_path, method: :delete %>
 <h2>Welcome <%= current_user.first_name %></h2>
+<hr />
+<%= link_to "Add an Appointment?", new_appointment_path %>
+<h3>Your Appointments for this Week:</h3>
+<ul>
+  <% @appointments.each do |appointment| %>
+    <li>
+      <!-- create appointments ordered by weekday then doctor -->
+      <%= appointment.weekday %> - $<%= appointment.doctor.first_name %>
+    </li>
+  <% end %>
+</ul>
