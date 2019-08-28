@@ -2,18 +2,18 @@
 <%= link_to 'Back to Scheduled Appointments',  appointments_path %>
 <br>
 <br>
-<%= form_with(model: @appointment, local: true) do |f| %>
+<%= form_with(model: @appointment, local: true, class: "ui form" ) do |f| %>
   <!-- I'm trying to create a dropdown menu here to allow users to select the day. It's not working... -->
   <div class="field">
     <%= f.label :weekday %>
-    <%= f.select :weekday, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] %>
+    <%= f.select :weekday, Appointment::OPTIONS, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :doctor %>
     <%= f.text_field :doctor, required: true %>
   </div>
 
-  <%= f.submit "Schedule Appointment", class: "btn waves-effect waves-light" %>
+  <%= f.submit "Schedule Appointment", class: "ui green button inverted" %>
 <% end %>
 <br>
 <p>Meet our current <%= link_to 'staff!', doctors_path %></p>

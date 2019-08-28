@@ -1,29 +1,30 @@
 <h1>Our Doctors!</h1>
 <p>Interested in joining our staff? <%= link_to 'Join us!', new_doctor_path %></p>
+<p>See all your <%= link_to 'appointments.', appointments_path %></p>
 <hr />
 <h2><%= @doctors.length <= 0 ? "We currently have no Doctors employed...that's sad!" : "" %></h2> 
 
   <!-- inline styling seemed to work for wrapping just this section... -->
-  <div style="display:flex;flex-wrap:wrap;">
+  <div class="ui cards">
   <% @doctors.each do |doctor| %>
-    <div class="card-horizontal card medium">
-      <div class="card-image">
-        <!-- I tried just passing doctor but robohash wouldn't work from some reason -->
-        <!-- the images also won't display at 50x50; the browser keeps them at 300x300 -->
-        <img src="https://robohash.org/<%= doctor.id %>?set=set2?size=50x50" />
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <h5>Dr. <%= doctor.full_name %> :: <%= doctor.specialty %></h5>
+      <div class="card">
+        <div class="image">
+          <!-- I tried just passing doctor but robohash wouldn't work from some reason -->
+          <!-- the images also won't display at 50x50; the browser keeps them at 300x300 -->
+          <img src="https://robohash.org/<%= doctor.id %>?set=set5" />
         </div>
-        <div class="card-action">
-          <%= link_to 'Remove', doctor, method: :delete %> ||
-          <%= link_to 'Make an Appointment', new_appointment_path %>
+        <div class="content">
+          <a class="header">Dr. <%= doctor.full_name %></a>
+          <div class="description">
+            Specializes in <%= doctor.specialty %>
+          </div>
+          <br>
+          <div class="extra content">
+            <i class="window close icon"></i><%= link_to 'Remove', doctor, method: :delete %>   
+            <i class="calendar outline icon"></i><%= link_to 'Make an Appointment', new_appointment_path %>
+          </div>
         </div>
-      </div>
     </div>
   <% end %>
   </div>
-
 <hr>
-<p>See all your <%= link_to 'appointments.', appointments_path %></p>
