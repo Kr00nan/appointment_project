@@ -3,12 +3,6 @@ class AppointmentsController < ApplicationController
 
   def index
     @appointments = current_user.appointments
-    @mondays = current_user.appointments.where(weekday: 'Monday')
-    @tuesdays = current_user.appointments.where(weekday: 'Tuesday')
-    @wednesdays = current_user.appointments.where(weekday: 'Wednesday')
-    @thursdays = current_user.appointments.where(weekday: 'Thursday')
-    @fridays = current_user.appointments.where(weekday: 'Friday')
-    @saturdays = current_user.appointments.where(weekday: 'Saturday')
   end
 
   def show
