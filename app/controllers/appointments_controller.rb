@@ -15,8 +15,10 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = current_user.appointments.new(appointment_params)
     if @appointment.save
+      flash[:success] = "Appointment Created"
       redirect_to appointments_path
     else
+      flash[:error] = "Error #{@appointment.errors.full_messages.join("\n")}"
       render :new
     end
   end
