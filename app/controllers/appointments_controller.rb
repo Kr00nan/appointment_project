@@ -1,15 +1,21 @@
 class AppointmentsController < ApplicationController
-  before_action :set_appointment, only: [:show, :edit, :update]
+  before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
   def index
     @appointments = current_user.appointments
+    @mondays = current_user.appointments.where(weekday: 'Monday')
+    @tuesdays = current_user.appointments.where(weekday: 'Tuesday')
+    @wednesdays = current_user.appointments.where(weekday: 'Wednesday')
+    @thursdays = current_user.appointments.where(weekday: 'Thursday')
+    @fridays = current_user.appointments.where(weekday: 'Friday')
+    @saturdays = current_user.appointments.where(weekday: 'Saturday')
   end
 
   def show
   end
 
   def new
-    @appointment = Appointment.new
+    @appointment = current_user.appointments.new
   end
 
   def create
@@ -37,6 +43,7 @@ class AppointmentsController < ApplicationController
   def destroy
     @appointment.destroy
     redirect_to appointments_path
+
   end
 
   private
